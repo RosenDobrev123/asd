@@ -1,0 +1,37 @@
+﻿namespace _1_to_100
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Random randomnumber = new Random();
+            int computernumber = randomnumber.Next(1, 101);
+            while (true)
+            {
+                Console.Write("Guess a number (1-100): ");
+                string playerinput = Console.ReadLine();
+                bool isvalid = int.TryParse(playerinput, out int playernumber);
+                if (isvalid)
+                {
+                    if (playernumber == computernumber)
+                    {
+                        Console.WriteLine("You guessed it!");
+                        break;
+                    }
+                    else if (playernumber > computernumber)
+                    {
+                        Console.WriteLine("Too High");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Too Low");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input.");
+                }
+            }
+        }
+    }
+}
